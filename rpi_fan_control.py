@@ -7,6 +7,8 @@ import RPi.GPIO as gpio
 
 import cputemp
 
+import threading
+
 
 GPIO_PIN         = 21       # Number of GPIO pin to control the fan
 SLEEP_TIME       = 5        # How long to sleep between each cpu temp check
@@ -58,7 +60,15 @@ def main():
     while True:
         state = check_cpu_temp(current_state=state)
         time.sleep(SLEEP_TIME)
-
+        
+def command_handler(command):
+    # add stuff here such as turning fan on/off, stopping program, etc.
+    pass
+        
 
 if __name__ == "__main__":
-    main()
+    run = threading.Thread(target=main, daemon=True)
+    run.start()
+    while True:
+        command = input('rpi-fan-control> ')
+        command_handler(command)
