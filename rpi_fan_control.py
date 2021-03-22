@@ -48,7 +48,7 @@ def main():
 
     gpio.setmode(gpio.BCM)
     gpio.setup(GPIO_PIN, gpio.OUT)
-    gpio.setup(GPIO_PIN, gpio.LOW)
+    gpio.output(GPIO_PIN, gpio.LOW)
 
     print("Start main loop.")
     while True:
