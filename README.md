@@ -16,6 +16,7 @@ Simple python daemon to control a fan via GPIO pins and a NPN transistor based o
 * To setup the daemon I recommend to:
     1. Create a new user: `sudo useradd -m fancontrol`
     1. Lock the user, so one can not login with it: `sudo passwd -l fancontrol`
+    1. Allow new user to access gpio pins by adding to a group: `sudo gpasswd -a fancontrol dialout`
     1. Checkout the repository in new users home: `cd /home/fancontrol && sudo -u fancontrol git clone https://github.com/danielgolf/rpi-fan-control.git`
     1. Copy the systemd unit file: `sudo cp /home/fancontrol/rpi-fan-control/rpi_fan_control.service /etc/systemd/system`
     1. Reload systemd: `sudo systemctl daemon-reload`
