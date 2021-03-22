@@ -22,18 +22,21 @@ def sigterm_handler(*_):
     sys.exit(0)
 
 
-def check_cpu_temp():
+def check_cpu_temp(current_state="unknown"):
     """
     this checks the cpu temperatur once and turns the fan
     on or off, based on the temperatur thresholds
     """
     temp = cputemp.get_cpu_temp()
-    if temp >= CPU_TEMP_FAN_ON:
+    if temp >= CPU_TEMP_FAN_ON and current_state != "on":
         print("Fan on")
+        current_state = "on"
         gpio.output(GPIO_PIN, gpio.HIGH)
-    elif temp <= CPU_TEMP_FAN_OFF:
+    elif temp <= CPU_TEMP_FAN_OFF and current_state != "off":
         print("Fan off")
+        current_state = "off"
         gpio.output(GPIO_PIN, gpio.LOW)
+    return current_state
 
 
 def main():
@@ -49,10 +52,11 @@ def main():
     gpio.setmode(gpio.BCM)
     gpio.setup(GPIO_PIN, gpio.OUT)
     gpio.output(GPIO_PIN, gpio.LOW)
+    state = "off"
 
     print("Start main loop.")
     while True:
-        check_cpu_temp ()
+        state = check_cpu_temp(current_state=state)
         time.sleep(SLEEP_TIME)
 
 
