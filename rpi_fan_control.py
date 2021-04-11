@@ -10,8 +10,8 @@ import cputemp
 
 GPIO_PIN         = 21       # Number of GPIO pin to control the fan
 SLEEP_TIME       = 5        # How long to sleep between each cpu temp check
-CPU_TEMP_FAN_ON  = 45       # Temperatur on which the fan is turned on
-CPU_TEMP_FAN_OFF = 42       # Temperatur on which the fan is turned off
+CPU_TEMP_FAN_ON  = 47       # Temperatur on which the fan is turned on
+CPU_TEMP_FAN_OFF = 44       # Temperatur on which the fan is turned off
 
 
 def sigterm_handler(*_):
