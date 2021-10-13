@@ -10,7 +10,7 @@ Simple python daemon to control a fan via GPIO pins and a NPN transistor based o
     * Cooler used: [GeeekPi Low-Profile Cooler](https://www.amazon.de/GeeekPi-Raspberry-Low-Profile-Horizontal-Heatsink/dp/B07ZV1LLWK/ref=sr_1_19?dchild=1&m=A187Y4UVM6ZA0X&marketplaceID=A1PA6795UKMFR9&qid=1616430764&s=merchant-items&sr=1-19)
 
 ## Installation
-* Python version used is 3.8.5
+* Python version used is 3.8.10
 * Dependencies can be installed with: `apt install rpi.gpio-common python3-rpi.gpio`
 * The `cputemp.py` script can be copied to `$HOME/.local/bin/`
 * To setup the daemon I recommend to:
@@ -22,10 +22,8 @@ Simple python daemon to control a fan via GPIO pins and a NPN transistor based o
     1. Reload systemd: `sudo systemctl daemon-reload`
     1. Activate and run the daemon/service: `sudo systemctl enable --now rpi_fan_control.service`
 
-
 ## Configuration
-
-In the main script `rpi_fan_control.py` are four variables ´ for configuration
+In the main script `rpi_fan_control.py` are four variables for configuration
 * `GPIO_PIN`: [Number of GPIO pin](https://cdn.sparkfun.com/assets/learn_tutorials/4/2/4/header_pinout.jpg) to control the fan
 * `SLEEP_TIME`: How long to sleep between each cpu temp check
 * `CPU_TEMP_FAN_ON`: Temperatur on which the fan is turned on
