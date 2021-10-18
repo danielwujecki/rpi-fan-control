@@ -2,7 +2,8 @@ version: "3.9"
 services:
   rpi-fan-control:
     build: ./
-    image: rpi-fan-control:latest
+    image: rpi-fan-control:v1.1
+    container_name: rpi-fan-control
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
     restart: always
