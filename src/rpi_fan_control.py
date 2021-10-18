@@ -18,7 +18,7 @@ def sigterm_handler(*_):
     """
     function called when a SIGTERM or SIGINT (ctrl-c) is received
     """
-    print("Received signal: exiting.")
+    print("Received signal: exiting.", flush=True)
     sys.exit(0)
 
 
@@ -29,11 +29,11 @@ def check_cpu_temp(current_state="unknown"):
     """
     temp = cputemp.get_cpu_temp()
     if temp >= CPU_TEMP_FAN_ON and current_state != "on":
-        print("Fan on")
+        print("Fan on", flush=True)
         current_state = "on"
         gpio.output(GPIO_PIN, gpio.HIGH)
     elif temp <= CPU_TEMP_FAN_OFF and current_state != "off":
-        print("Fan off")
+        print("Fan off", flush=True)
         current_state = "off"
         gpio.output(GPIO_PIN, gpio.LOW)
     return current_state
@@ -54,7 +54,7 @@ def main():
     gpio.output(GPIO_PIN, gpio.LOW)
     state = "off"
 
-    print("Start main loop.")
+    print("Start main loop.", flush=True)
     while True:
         state = check_cpu_temp(current_state=state)
         time.sleep(SLEEP_TIME)

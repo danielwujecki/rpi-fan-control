@@ -7,7 +7,8 @@ def main():
     """
     Print the current CPU temperature.
     """
-    print('Current CPU temperature is {:.2f} degrees Celsius.'.format(get_cpu_temp()))
+    output = 'Current CPU temperature is {:.2f} degrees Celsius.'.format(get_cpu_temp())
+    print(output, flush=True)
 
 
 def get_cpu_temp():
