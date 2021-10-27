@@ -1,9 +1,17 @@
 version: "3.9"
 services:
+
   rpi-fan-control:
     build: ./
     image: rpi-fan-control:v1.1
     container_name: rpi-fan-control
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
+    networks:
+      - fancontrol-network
     restart: always
+
+networks:
+  fancontrol-network:
+    name: fancontrol-network
+    driver: bridge
