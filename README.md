@@ -16,7 +16,7 @@ Simple python daemon to control a fan via GPIO pins and a NPN transistor based o
 
 ### Via systemd unit
 * Python version used is 3.8.10
-* Dependencies can be installed with: `apt install rpi.gpio-common python3-rpi.gpio`
+* Dependencies can be installed with: `apt install python3-rpi.gpio`
 * To setup the daemon I recommend to:
     1. Create a new user: `sudo useradd -m fancontrol`
     1. Lock the user, so one can not login with it: `sudo passwd -l fancontrol`
