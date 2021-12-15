@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
 import os
+import logging
+
+
+logger = logging.getLogger("rpifancontrol.cputemp")
 
 
 def get():
@@ -16,6 +20,8 @@ def get():
             line = f.readline().strip()
         if line.isdigit():
             result = float(line) / 1000
+    else:
+        logging.critical("Can not find temperature file in /sys.")
     return result
 
 
