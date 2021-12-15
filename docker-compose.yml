@@ -5,6 +5,11 @@ services:
     build: ./
     image: rpi-fan-control:v1.3
     container_name: rpi-fan-control
+    environment:
+      - GPIO_PIN=21
+      - POLL_INTERVAL=5
+      - TEMP_FAN_ON=55
+      - TEMP_FAN_OFF=50
     devices:
       - "/dev/gpiomem:/dev/gpiomem"
     networks:
