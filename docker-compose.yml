@@ -3,7 +3,7 @@ services:
 
   rpi-fan-control:
     build: ./
-    image: rpi-fan-control:v1.1
+    image: rpi-fan-control:v1.2
     container_name: rpi-fan-control
     devices:
       - "/dev/gpiomem:/dev/gpiomem"

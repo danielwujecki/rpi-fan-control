@@ -15,7 +15,7 @@ Simple python daemon to control a fan via GPIO pins and a NPN transistor based o
 * Just run `docker-compose up -d`
 
 ### Via systemd unit
-* Python version used is 3.8.10
+* Python version used is 3.8
 * Dependencies can be installed with: `apt install python3-rpi.gpio`
 * To setup the daemon I recommend to:
     1. Create a new user: `sudo useradd -m fancontrol`
