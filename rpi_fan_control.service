@@ -4,13 +4,11 @@ Description=Temperatur based GPIO fan control
 [Service]
 Type=simple
 User=fancontrol
-Group=fancontrol
+Group=users
 Environment=HOME=/home/fancontrol
 WorkingDirectory=/home/fancontrol/rpi-fan-control
 ExecStart=/usr/bin/python3 -u /home/fancontrol/rpi-fan-control/src/rpi_fan_control.py -g 21 -p 5 -n 55 -f 50
 SyslogIdentifier=rpi-fan-control
-StandardOutput=syslog
-StandardError=syslog
 Restart=always
 RestartSec=5
 
