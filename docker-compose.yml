@@ -3,7 +3,7 @@ services:
 
   rpi-fan-control:
     build: ./
-    image: rpi-fan-control:v1.3
+    image: rpi-fan-control:v1.3.1
     container_name: rpi-fan-control
     environment:
       - GPIO_PIN=21
